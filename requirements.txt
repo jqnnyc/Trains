@@ -1,6 +1,4 @@
 requests
-xml
 pandas
-re
 lxml
 streamlit
