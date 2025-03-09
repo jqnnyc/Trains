@@ -12,14 +12,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Fucking Trains X")
+st.title("Fucking Trains")
 
 # Define key-value pairs
 options = {
     "FLE": "Fleet",
     "HOK": "Hook",
     "WAT": "Waterloo",
-    "BSK": "Basingstoke"  
+    "BSK": "Basingstoke",
+    "SND": "Sandhurst"  
 }
 
 # Create a selectbox with labels
