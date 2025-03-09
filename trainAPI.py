@@ -7,7 +7,7 @@ from lxml import etree
 
 def returnTrains (loc):
 
-    loc = "FLE"
+    #loc = "FLE"
 
     # Define the headers for the HTTP request
     headers = {
