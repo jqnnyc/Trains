@@ -18,11 +18,12 @@ st.title("Fucking Trains")
 options = {
     "FLE": "Fleet",
     "HOK": "Hook",
-    "WAT": "Waterloo"    
+    "WAT": "Waterloo",
+    "BSK": "Basingstoke"  
 }
 
 # Create a selectbox with labels
-loc_label = st.selectbox("Select a Station", options.values())
+loc_label = st.selectbox("Select a station (if you want, you twat)", options.values())
 
 # Get the corresponding key
 loc = [key for key, value in options.items() if value == loc_label][0]
