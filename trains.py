@@ -12,7 +12,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Fucking Trains XX")
+st.title("Fucking Trains")
 
 # Define key-value pairs
 options = {
