@@ -50,7 +50,7 @@ else:
 
     st.markdown("Here's the fucking departure board:")
     t = df[['std','etd','destination','platform']]
-    st.table(t)
+    st.dataframe(t)
 
 
 
