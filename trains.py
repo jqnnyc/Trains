@@ -20,7 +20,6 @@ try:
 
 # Define key-value pairs
 except:
-    st.markdown("fuck")
     options = {
         "FLE": "Fleet",
         "HOK": "Hook",
