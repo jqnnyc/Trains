@@ -12,7 +12,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Fucking Trains")
+st.title(":middle_finger: Fucking Trains :middle_finger:")
 
 try:
     s = returnStations()
@@ -42,12 +42,12 @@ if df.empty:
 else:
     st.success(f"Showing the next few fucking trains from pissing {loc_label} train station for your pleasure. You wanker.")
 
-    st.markdown(f"🖕 The next train is to the shithole of **{df.at[0,'destination']}** at **{df.at[0, 'std']}**. It is currently due to be {df.at[0, 'etd'].lower()}. Hope it's your train you twat.")
+    st.markdown(f":steam_locomotive: The next train is to the shithole of **{df.at[0,'destination']}** at **{df.at[0, 'std']}**. It is currently due to be {df.at[0, 'etd'].lower()}. Hope it's your train you twat.")
 
     if len(df) > 1:
-        st.markdown(f"🖕 After that you can piss off to **{df.at[1,'destination']}** if you're that way inclined. That train is scheduled at **{df.at[1, 'std']}** and i'm not telling you if it's on time because i think you're a prick.")
+        st.markdown(f":steam_locomotive: After that you can piss off to **{df.at[1,'destination']}** if you're that way inclined. That train is scheduled at **{df.at[1, 'std']}** and i'm not telling you if it's on time because i think you're a prick.")
     else:
-        st.error("🖕 After that, there are no more fucking trains in the next couple of hours. Bad luck bellend!")
+        st.error(":steam_locomotive: After that, there are no more fucking trains in the next couple of hours. Bad luck bellend!")
 
     st.markdown("Here's the fucking departure board:")
 
