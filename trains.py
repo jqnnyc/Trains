@@ -14,14 +14,19 @@ st.markdown(
 
 st.title("Fucking Trains")
 
+try:
+    s = returnStations()
+    options = dict(zip(s['crsCode'], s['stationName']))
+
 # Define key-value pairs
-options = {
-    "FLE": "Fleet",
-    "HOK": "Hook",
-    "WAT": "Waterloo",
-    "BSK": "Basingstoke",
-    "SND": "Sandhurst"  
-}
+except:
+    options = {
+        "FLE": "Fleet",
+        "HOK": "Hook",
+        "WAT": "Waterloo",
+        "BSK": "Basingstoke",
+        "SND": "Sandhurst"  
+    }
 
 # Create a selectbox with labels
 loc_label = st.selectbox("Select a station (if you want, you twat)", options.values())
@@ -51,6 +56,7 @@ else:
     st.markdown("Here's the fucking departure board:")
     t = df[['std','etd','destination','platform']]
     st.dataframe(t)
+
 
 
 
