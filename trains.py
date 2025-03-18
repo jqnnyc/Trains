@@ -12,7 +12,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title(":middle_finger: Fucking Trains Test :middle_finger:")
+st.title(":middle_finger: Fucking Trains :middle_finger:")
 
 try:
     s = returnStations()
