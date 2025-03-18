@@ -29,16 +29,12 @@ except:
     }
 
 # Create a selectbox with labels
-loc_label = st.selectbox("Select a station (if you want, you twat)", options.values())
+loc_label = st.selectbox("Select a station (if you want, you twat)", options.values(), index=list(options.keys()).index('FLE'))
 
 # Get the corresponding key
 loc = [key for key, value in options.items() if value == loc_label][0]
 
 df = returnTrains(loc)
-
-button_run_pressed = st.button("Reload the fucking data")
-if button_run_pressed:
-    df = returnTrains(loc)
 
 
 if df.empty:
@@ -54,6 +50,11 @@ else:
         st.error("After that, there are no more fucking trains in the next couple of hours. Bad luck bellend!")
 
     st.markdown("Here's the fucking departure board:")
+
+    button_run_pressed = st.button("Reload the fucking data")
+    if button_run_pressed:
+        df = returnTrains(loc)
+
     t = df[['std','etd','destination','platform']]
     st.dataframe(t)
 
