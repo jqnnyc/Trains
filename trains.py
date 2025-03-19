@@ -12,7 +12,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Test Sweary Trains:middle_finger:")
+st.title("Sweary Trains:middle_finger:")
 
 try:
     s = returnStations()
