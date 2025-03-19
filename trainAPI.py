@@ -72,7 +72,23 @@ def returnTrains (loc):
 
         df = pd.DataFrame(data)
         #print(df)
-        return df
+        
+        callingPoints = root.xpath("//trainServices/service/subsequentCallingPoints/callingPointList/callingPoint")
+
+        data2 = [
+            {
+                "locationName": callingPoint.xpath("locationName/text()")[0] if callingPoint.xpath("locationName/text()") else "N/A"
+                ,"st": callingPoint.xpath("st/text()")[0] if callingPoint.xpath("st/text()") else "N/A"
+                ,"et": callingPoint.xpath("et/text()")[0] if callingPoint.xpath("et/text()") else "N/A"
+                ,"std": callingPoint.xpath("./../../../std/text()")[0] if callingPoint.xpath("./../../../std/text()")[0] else "N/A"
+                ,"destination": callingPoint.xpath("./../../../destination/location/locationName/text()")[0] if callingPoint.xpath("./../../../destination/location/locationName/text()")[0] else "N/A"
+            }
+            for callingPoint in callingPoints
+        ]
+        
+        df2 = pd.DataFrame(data2)
+
+        return df, df2
 
     else:
         print(f"Request failed with status code {response.status_code}")

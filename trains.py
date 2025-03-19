@@ -34,8 +34,7 @@ loc_label = st.selectbox("Select a station (if you want, you twat)", options.val
 # Get the corresponding key
 loc = [key for key, value in options.items() if value == loc_label][0]
 
-df = returnTrains(loc)
-
+df, df2 = returnTrains(loc)
 
 if df.empty:
     st.error(f"Uh oh... looks like there are no fucking trains from {loc_label}!!")
@@ -56,8 +55,16 @@ else:
         df = returnTrains(loc)
 
     t = df[['std','etd','destination','platform']]
+    t = t.rename(columns={'std': 'Scheduled', 'etd': 'Estimated', 'destination': 'Destination', 'platform': 'Platform'})
     st.dataframe(t)
 
+    df2['Service'] = df2['std'] + ' to ' + df2['destination']
+    services = df2['Service'].unique()
+    serviceSelect = st.selectbox("Where does it fucking stop?", services)
+    selectedService = df2[df2['Service'] == serviceSelect]
+    selectedService_print = selectedService[['locationName','st','et']].reset_index(drop=True)
+    selectedService_print = selectedService_print.rename(columns={'locationName': 'Calling Point', 'st': 'Scheduled', 'et': 'Estimated'})
+    st.dataframe(selectedService_print)
 
 
 
