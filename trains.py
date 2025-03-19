@@ -52,7 +52,7 @@ else:
 
     button_run_pressed = st.button("Reload the fucking data")
     if button_run_pressed:
-        df = returnTrains(loc)
+        df, df2 = returnTrains(loc)
 
     t = df[['std','etd','destination','platform']]
     t = t.rename(columns={'std': 'Scheduled', 'etd': 'Estimated', 'destination': 'Destination', 'platform': 'Platform'})
