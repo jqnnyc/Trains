@@ -54,7 +54,7 @@ def returnTrains (loc):
             elem.tag = re.sub(r"{.*}", "", elem.tag)
 
         # Find all <service> elements directly
-        services = root.xpath("//trainServices/service")
+        services = root.xpath("//*/service")
 
         # Extract std and etd values
         data = [
@@ -73,7 +73,7 @@ def returnTrains (loc):
         df = pd.DataFrame(data)
         #print(df)
         
-        callingPoints = root.xpath("//trainServices/service/subsequentCallingPoints/callingPointList/callingPoint")
+        callingPoints = root.xpath("//*/callingPoint")
 
         data2 = [
             {
