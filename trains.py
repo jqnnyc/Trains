@@ -1,6 +1,7 @@
 import pandas as pd
 from trainAPI import *
 import streamlit as st
+from streamlit_TTS import text_to_speech
 
 st.markdown(
     """
@@ -65,6 +66,13 @@ else:
     selectedService_print = selectedService[['locationName','st','et']].reset_index(drop=True)
     selectedService_print = selectedService_print.rename(columns={'locationName': 'Calling Point', 'st': 'Scheduled', 'et': 'Estimated'})
     st.dataframe(selectedService_print)
+
+    text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
+    text_to_speech(text)
+    text = f"What an absolute shit hole that place is."
+    text_to_speech(text)
+    text = f"And you are a bell end."
+    text_to_speech(text)
 
 
 
