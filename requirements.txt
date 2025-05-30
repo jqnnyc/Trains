@@ -3,3 +3,5 @@ pandas
 lxml
 streamlit
 streamlit_TTS
+openai
+python-dotenv
