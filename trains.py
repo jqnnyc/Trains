@@ -29,8 +29,16 @@ except:
         "SND": "Sandhurst"  
     }
 
+def on_select_change():
+    text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
+    text_to_speech(text)
+    text = f"What an absolute shit hole that place is."
+    text_to_speech(text)
+    text = f"And you are a bell end."
+    text_to_speech(text)
+
 # Create a selectbox with labels
-loc_label = st.selectbox("Select a station (if you want, you twat)", options.values(), index=list(options.keys()).index('FLE'))
+loc_label = st.selectbox("Select a station (if you want, you twat)", options.values(), index=list(options.keys()).index('FLE'),on_change=on_select_change)
 
 # Get the corresponding key
 loc = [key for key, value in options.items() if value == loc_label][0]
@@ -67,12 +75,7 @@ else:
     selectedService_print = selectedService_print.rename(columns={'locationName': 'Calling Point', 'st': 'Scheduled', 'et': 'Estimated'})
     st.dataframe(selectedService_print)
 
-    text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
-    text_to_speech(text)
-    text = f"What an absolute shit hole that place is."
-    text_to_speech(text)
-    text = f"And you are a bell end."
-    text_to_speech(text)
+
 
 
 
