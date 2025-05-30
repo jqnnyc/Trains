@@ -29,16 +29,8 @@ except:
         "SND": "Sandhurst"  
     }
 
-def on_select_change():
-    text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
-    text_to_speech(text)
-    text = f"What an absolute shit hole that place is."
-    text_to_speech(text)
-    text = f"And you are a bell end."
-    text_to_speech(text)
-
 # Create a selectbox with labels
-loc_label = st.selectbox("Select a station (if you want, you twat)", options.values(), index=list(options.keys()).index('FLE'),on_change=on_select_change)
+loc_label = st.selectbox("Select a station (if you want, you twat)", options.values(), index=list(options.keys()).index('FLE'))
 
 # Get the corresponding key
 loc = [key for key, value in options.items() if value == loc_label][0]
@@ -49,6 +41,14 @@ if df.empty:
     st.error(f"Uh oh... looks like there are no fucking trains from {loc_label}!!")
 else:
     st.success(f"Showing the next few fucking trains from pissing {loc_label} train station for your pleasure. You wanker.")
+
+    if st.button("FUCKING SPEAK TO ME"):
+        text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
+        text_to_speech(text)
+        text = f"What an absolute shit hole that place is."
+        text_to_speech(text)
+        text = f"And you are a bell end."
+        text_to_speech(text)
 
     st.markdown(f":steam_locomotive: The next train is to the shithole of **{df.at[0,'destination']}** at **{df.at[0, 'std']}**. It is currently due to be {df.at[0, 'etd'].lower()}. Hope it's your train you twat.")
 
