@@ -1,7 +1,7 @@
 import pandas as pd
 from trainAPI import *
 import streamlit as st
-from streamlit_TTS import text_to_speech
+# from streamlit_TTS import text_to_speech
 
 st.markdown(
     """
@@ -42,13 +42,13 @@ if df.empty:
 else:
     st.success(f"Showing the next few fucking trains from pissing {loc_label} train station for your pleasure. You wanker.")
 
-    if st.button("FUCKING SPEAK TO ME"):
-        text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
-        text_to_speech(text)
-        text = f"What an absolute shit hole that place is."
-        text_to_speech(text)
-        text = f"And you are a bell end."
-        text_to_speech(text)
+    #if st.button("FUCKING SPEAK TO ME"):
+    #    text = f"Sweary Trains Incorporated presents the fucking upcoming departure times from {loc_label} train station."
+    #    text_to_speech(text)
+    #    text = f"What an absolute shit hole that place is."
+    #    text_to_speech(text)
+    #    text = f"And you are a bell end."
+    #    text_to_speech(text)
 
     st.markdown(f":steam_locomotive: The next train is to the shithole of **{df.at[0,'destination']}** at **{df.at[0, 'std']}**. It is currently due to be {df.at[0, 'etd'].lower()}. Hope it's your train you twat.")
 
